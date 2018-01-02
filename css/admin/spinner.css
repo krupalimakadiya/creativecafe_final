@@ -1,0 +1,105 @@
+
+.ace-spinner {
+  display: inline-block;
+}
+.ace-spinner .spinbox-buttons.btn-group-vertical {
+  min-width: 18px;
+}
+.ace-spinner .spinbox-buttons.btn-group-vertical > .btn {
+  font-size: 10px;
+  padding: 0;
+  width: 22px;
+  height: 16px;
+  line-height: 8px;
+  margin-left: 0;
+}
+.ace-spinner .spinbox-buttons.btn-group-vertical > .btn:first-child {
+  margin-top: 0;
+}
+.ace-spinner .spinbox-buttons.btn-group-vertical > .btn > .ace-icon {
+  margin: 0;
+  padding: 0;
+}
+.ace-spinner .spinbox-buttons.btn-group-vertical > .btn + .btn {
+  margin-top: 2px;
+}
+.ace-spinner .spinbox-buttons.btn-group-vertical > .btn-xs {
+  height: 14px;
+  line-height: 7px;
+}
+.ace-spinner .spinbox-buttons.btn-group-vertical > .btn-lg {
+  height: 22px;
+  line-height: 10px;
+  width: 22px;
+}
+.ace-spinner .spinbox-buttons > button.btn.spinbox-up:active {
+  top: -1px;
+}
+.ace-spinner:not(.touch-spinner) .spinbox-buttons > .btn > .ace-icon {
+  margin-top: -1px;
+}
+.ace-spinner.touch-spinner .spinbox-buttons {
+  margin: 0;
+  font-size: 0;
+}
+.ace-spinner.touch-spinner .spinbox-buttons .btn-sm {
+  width: 32px;
+}
+.ace-spinner.touch-spinner .spinbox-buttons .btn-xs {
+  width: 24px;
+}
+.ace-spinner.touch-spinner .spinbox-buttons .btn-lg {
+  width: 40px;
+}
+.ace-spinner.touch-spinner .spinbox-buttons > .btn {
+  margin: 0 1px !important;
+}
+.ace-spinner.touch-spinner .spinbox-buttons > .btn-xs {
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+.ace-spinner.touch-spinner .spinbox-buttons > .btn > .ace-icon {
+  vertical-align: middle;
+  display: inline-block;
+}
+
+
+.editable-input .ace-spinner {
+  margin-right: 8px;
+}
+.editable-input .ace-spinner .spinner-input {
+  width: 100%;
+}
+
+
+.ui-spinner-button {
+  border-width: 0 !important;
+  font-size: 10px;
+  height: 16px;
+  line-height: 16px;
+  width: 18px;
+  color: #FFFFFF !important;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25) !important;
+  display: inline-block;
+  position: absolute;
+  text-align: center;
+  padding: 0;
+}
+.ui-spinner-button > .ace-icon {
+  width: 18px;
+  display: inline-block;
+}
+.ui-spinner-up {
+  top: 0;
+  right: 5px;
+}
+.ui-spinner-down {
+  bottom: 3px;
+  right: 5px;
+}
+.ui-spinner-input {
+  margin-top: 0;
+  padding: 5px;
+  max-width: 100px;
+  font-size: 14px;
+}

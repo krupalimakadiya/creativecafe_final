@@ -1,0 +1,276 @@
+body,b,table,a,div,form,i,label,h1,h2,h3,h4,h5,
+input, select, textarea{
+    font-family: sans-serif;
+}
+
+.pl-0px{
+    padding-left: 0px;
+}
+
+.pr-0px{
+    padding-right: 0px;
+}
+
+.ml-23px{
+    margin-left: 23px;
+}
+
+.btn-font{
+    font-family: sans-serif;
+}
+.mt--18px{
+    margin-top: -18px;
+}
+.mt-26px{
+    margin-top: 26px;
+}
+
+.label-btn-icon{
+    font-size: 15px;
+    padding-left: 3px;
+    padding-top: 5px;
+}
+
+.label-btn-fonts{
+    font-size: 15px;
+    margin-bottom: -6px;
+    margin-left: 1px;
+    margin-right: 5px;
+}
+.plr-0px{
+    padding-left: 0px;
+    padding-right:  0px;
+    padding-bottom: 0px;
+}
+.m-tbl{
+    margin-top: 0px;
+    margin-bottom: 15px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+
+.label-icon{
+    margin-right: 3px;
+    margin-bottom: 1px;
+}
+.m-tb{
+    margin-top: -10px;
+    margin-bottom: 15px;
+}
+.m-lr{
+    margin-top: 5px;
+}
+@media screen and (min-width: 1000px) {
+    .ml--20px{
+        margin-left: -20px;
+    }
+    .mr--20px{
+        margin-right: -20px;
+    }
+}
+@media screen and (min-width: 768px) {
+    .span-close-icon{
+        margin-bottom: -15px;
+    }
+    .btn-top {
+        top: 0px;
+    }
+    .p-l-0px{
+        padding-left: 0px;
+    }
+    .p-r-0px{
+        padding-right: 0px;
+    }
+}
+@media screen and (max-width: 768px) {
+    .label-btn-icon{
+        padding-left: 5px;
+        margin-right: -2px;
+    }
+    .lable-icon {
+        margin-right: 4px;
+        margin-bottom: 5px;
+    }
+    .mt-15px{
+        margin-top: 15px;
+    }
+    .md-mt-26px{
+        margin-top: 26px;
+    }
+}
+.span-close-icon{
+    float: right;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    color: red;
+}
+
+hr {
+    margin-top: 0px; 
+    margin-bottom: 0px; 
+}
+.select2-container :focus {
+    border: 1px solid #3c8dbc;
+    box-shadow: inset 0 2px 3px 0 rgba(0,0,0,.06);
+}
+.select2-selection__rendered :focus{
+    border: 1px solid #3c8dbc;
+}
+
+/* Spacement Padding */
+.p-none {
+    padding: 0 !important;
+}
+
+/* In case you dont want a border in some row */
+.table .b-top-none td {
+    border-top: none;
+}
+
+/* Spacements */
+/* spacement top & bottom */
+.m-none {
+    margin: 0 !important;
+}
+
+/* spacement bottom	*/
+.mb-none {
+    margin-bottom: 0 !important;
+}
+
+
+/* toggele switch */
+
+.onoffswitch {
+    position: relative; width: 90px;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+
+.onoffswitch-checkbox {
+    display: none;
+}
+
+.onoffswitch-label {
+    display: block; overflow: hidden; cursor: pointer;
+    border: 2px solid #999999; border-radius: 20px;
+}
+
+.onoffswitch-inner {
+    display: block; width: 200%; margin-left: -100%;
+    -moz-transition: margin 0.3s ease-in 0s; -webkit-transition: margin 0.3s ease-in 0s;
+    -o-transition: margin 0.3s ease-in 0s; transition: margin 0.3s ease-in 0s;
+}
+
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+    display: block; float: left; width: 50%; height: 30px; padding: 0; line-height: 30px;
+    font-size: 14px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+    -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+}
+
+.onoffswitch-inner:before {
+    content: "YES";
+    padding-left: 10px;
+    background-color: #3c8dbc; color: #FFFFFF;
+}
+
+.onoffswitch-inner:after {
+    content: "NO";
+    padding-right: 10px;
+    background-color: #EEEEEE; color: #999999;
+    text-align: right;
+}
+
+.onoffswitch-switch {
+    display: block; width: 18px; margin: 6px;
+    background: #FFFFFF;
+    border: 2px solid #999999; border-radius: 20px;
+    position: absolute; top: 0; bottom: 0; right: 56px;
+    -moz-transition: all 0.3s ease-in 0s; -webkit-transition: all 0.3s ease-in 0s;
+    -o-transition: all 0.3s ease-in 0s; transition: all 0.3s ease-in 0s; 
+}
+
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+    margin-left: 0;
+}
+
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+    right: 0px; 
+}
+
+.cmn-toggle 
+{
+    position: absolute;
+    margin-left: -9999px;
+    visibility: hidden;
+}
+
+.cmn-toggle + label 
+{
+    display: block;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.errspan {
+    float: right;
+    margin-right: 4px;
+    margin-top: -26px;
+    position: relative;
+    z-index: 2;
+}
+
+.btn-top{
+    top: 25px;
+}
+.p-0{
+    padding: 0px;
+}
+.text-danger-row{
+    color: red;
+}
+.serial_no{
+    padding: 6px;
+    background: #FFA417;
+    color: #FFF;
+    font-size: 13px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+/*20-05-2017 css*/
+.session_entity_name{
+    position: absolute;
+    top: 15px;
+    left: 60px;
+    color:#fff;
+    width: 55%;
+}
+@media (min-width: 768px) and (max-width: 1016px){
+    .session_entity_name {
+        top: 5px;
+    }
+}
+@media (min-width: 426px) and (max-width: 767px){
+    .session_entity_name {
+        top: 5px;
+    }
+}
+@media (min-width: 320px) and (max-width: 425px){
+    .session_entity_name {
+        top: -7px;
+    }
+}
+.invoice_items_details{
+    background-color: #f0f0f0;
+}
+
+.btn-success:hover, .btn-success:focus, .btn-success:active, .btn-success.active, .open > .dropdown-toggle.btn-success {
+    background:#33a6cc;
+}
