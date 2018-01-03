@@ -1,26 +1,3 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <?php
-        include('admin/header_include.php');
-        ?>
-    </head>
-    <body class="hold-transition skin-blue sidebar-mini">
-
-        <div class="wrapper">
-
-            <header class="main-header">
-                <?php
-                include('admin/header_body.php');
-                ?>
-            </header>
-            <!-- Left side column. contains the logo and sidebar -->
-            <aside class="main-sidebar">
-                <?php
-                include('admin/header_body_aside.php');
-                ?>
-            </aside>
-
             <!-- Content Wrapper. Contains page content -->
             <div class="content-wrapper">
                 <!-- Content Header (Page header) -->
@@ -31,9 +8,9 @@
                             <div class="box-header with-border">
                                 <h3 class="box-title"><label>Country Master</label></h3>
                                 <p align="right">
-                                    <a href="<?php echo site_url("country/add_country") ?>"><button class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i>&nbsp;Add records</button></a> &nbsp;
-                                    <a href="<?php echo site_url("country/import") ?>"><button class="btn btn-primary"><i class="glyphicon glyphicon-import"></i>&nbsp;Imports</button></a> &nbsp;
-                                    <a href="<?php echo site_url("country/export") ?>"><button class="btn btn-primary"><i class="glyphicon glyphicon-export"></i>&nbsp;Exports</button></a></p>
+                                    <a href="<?php echo site_url("admin/country/add_country") ?>"><button class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i>&nbsp;Add records</button></a> &nbsp;
+                                    <a href="<?php echo site_url("admin/country/import") ?>"><button class="btn btn-primary"><i class="glyphicon glyphicon-import"></i>&nbsp;Imports</button></a> &nbsp;
+                                    <a href="<?php echo site_url("admin/country/export") ?>"><button class="btn btn-primary"><i class="glyphicon glyphicon-export"></i>&nbsp;Exports</button></a></p>
                                 <?php
                                 $message = $this->session->flashdata('message');
                                 if (isset($message)) {
@@ -51,7 +28,7 @@
 
 
                             <div class="box-body">
-                                <form name="frm" method="post" action="<?php echo site_url('country/deletemultiple'); ?>">
+                                <form name="frm" method="post" action="<?php echo site_url('admin/country/deletemultiple'); ?>">
                                     <table id="example1" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
@@ -93,16 +70,16 @@
 
                                                             <ul class="dropdown-menu" role="menu"> <!-- class dropdown-menu -->
                                                                 <li> <a onclick="openView(<?= $country->country_id ?>);"><i class="fa fa-search"></i><label>View</label></a> </li>                     
-                                                                <li>    <a href="<?php echo site_url("country/edit_data/$country->country_id") ?>" onclick="return confirm('you want to edit...........')"><i class="fa fa-edit"></i><label>Edit</label></a></li>
-                                                                <li>    <a href="<?php echo site_url("country/delete/$country->country_id") ?>" onclick="return confirm('you want to delete...........')"><i class="fa fa-trash"></i><label>Delete</label></a></li>
+                                                                <li>    <a href="<?php echo site_url("admin/country/edit_data/$country->country_id") ?>" onclick="return confirm('you want to edit...........')"><i class="fa fa-edit"></i><label>Edit</label></a></li>
+                                                                <li>    <a href="<?php echo site_url("admin/country/delete/$country->country_id") ?>" onclick="return confirm('you want to delete...........')"><i class="fa fa-trash"></i><label>Delete</label></a></li>
                                                                 <li><?php
                                                                     if ($country->status == '0') {
                                                                         ?>
-                                                                        <a href="<?php echo site_url("country/update_status_active/$country->country_id") ?>"><i class="glyphicon glyphicon-ok" style="color:green"></i><label>Active</label></a>
+                                                                        <a href="<?php echo site_url("admin/country/update_status_active/$country->country_id") ?>"><i class="glyphicon glyphicon-ok" style="color:green"></i><label>Active</label></a>
                                                                         <?php
                                                                     } else {
                                                                         ?>
-                                                                        <a href="<?php echo site_url("country/update_status_deactive/$country->country_id") ?>"><i class="glyphicon glyphicon-remove" style="color:red"></i><label>Deactive</label></a>
+                                                                        <a href="<?php echo site_url("admin/country/update_status_deactive/$country->country_id") ?>"><i class="glyphicon glyphicon-remove" style="color:red"></i><label>Deactive</label></a>
                                                                         <?php
                                                                     }
                                                                     ?></li>
@@ -178,33 +155,18 @@
                         </div>
                         <!-- /.row -->
                     </section>
-
                 </section>
-
                 <!-- Main content -->
                 <!-- /.content -->
             </div>
             <!-- /.content-wrapper -->
-
-            <footer class="main-footer">
-                <?php
-                include('admin/footer_body.php');
-                ?>
-            </footer>
-
-
             <!-- Add the sidebar's background. This div must be placed
                  immediately after the control sidebar -->
             <div class="control-sidebar-bg"></div>
         </div>
-        <!-- ./wrapper -->
-        <?php
-        include('admin/footer_include.php');
-        ?>
+        
         <script type="text/javascript">
             function openView(id) {
                 $('#myModal' + id).modal('show');
             }
         </script>
-    </body>
-</html>

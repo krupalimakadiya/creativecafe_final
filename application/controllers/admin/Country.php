@@ -6,22 +6,24 @@ class Country extends My_Controller{
 
      public function __construct() {
         parent::__construct();
-        $this->load->model('country_model');
+        $this->load->model('admin/country_model');
     }
+ 
     public function index() {
-     
-        $data['country_list'] = $this->country_model->getcountrylist();
-        $this->load->view('v_country_view', $data);
+            $data = $this->_get_country_data();
+        $this->templets('admin/country/country_view', $data);
+    
     }
 
 public function view_country() {
-        $data['country_list'] = $this->country_model->getcountrylist();
-        $this->load->view('v_country_view', $data);
+        $data = $this->_get_country_data();
+        $this->templets('admin/country/country_view', $data);
     }
 
     public function add_country() {
-        $data['country_list'] = $this->country_model->getcountrylist();
-        $this->load->view('v_country_form', $data);
+        $data = $this->_get_country_data();
+        $this->templates('admin/country/country_form', $data);
+           
     }
 
     public function import() {
@@ -32,44 +34,42 @@ public function view_country() {
         $country_data = $this->country_model->check_data($_POST['country_name']);
         if (isset($country_data)) {
             $this->session->set_flashdata('message','record already exists...');            
-            redirect('country/index');
+            redirect('admin/country/index');
         } else {
             $this->country_model->insert($_POST['country_name']);
              $this->session->set_flashdata('message','insert successfully...');
-            redirect('country/index');
+            redirect('admin/country/index');
         }
     }
 
     public function edit_data($country_id) {
         $data['update_data'] = $this->country_model->edit_data($country_id);
         $data['country_list'] = $this->country_model->getcountrylist();
-        $this->load->view('v_country_form', $data);
+    $this->templates('admin/country/country_form', $data);
     }
 
     public function editp() {
         $this->country_model->update_data($_POST['country_id'], $_POST['country_name']);
           $this->session->set_flashdata('message','record updated successfully...');
            
-        redirect("country/index");
+        redirect("admin/country/index");
     }
 
     public function delete($country_id) {
         $this->country_model->delete($country_id);
         $this->session->set_flashdata('message','record deleted successfully...');            
-        redirect("country/index");
+        redirect("admin/country/index");
     }
     public function update_status_active($country_id) {
-        $this->load->model('country_model');
         $status = $this->input->get('status');
         $this->country_model->update_active($country_id, $status);
-        redirect('country/index');
+        redirect('admin/country/index');
     }
 
     public function update_status_deactive($country_id) {
-        $this->load->model('country_model');
         $status = $this->input->get('status');
         $this->country_model->update_deactive($country_id, $status);
-        redirect('country/index');
+        redirect('admin/country/index');
     }
     
      public function importp() {
@@ -102,7 +102,7 @@ public function view_country() {
         }
         $total = ($records - 1);
         $this->session->set_flashdata('message', $counter . " record(s) out of " . ($total == -1 ? 0 : $total) . " successfully imported.");
-        redirect("country/index");
+        redirect("admin/country/index");
     }
 
    public function deletemultiple() 
@@ -148,7 +148,12 @@ public function view_country() {
             } 
             $i++; 
         } 
-        redirect("country/index"); 
+        redirect("admin/country/index"); 
+    }
+
+        function _get_country_data() {
+        $data['country_list'] = $this->country_model->getcountrylist();
+        return $data;
     }
 
     
