@@ -6,49 +6,50 @@ class Login extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->model('login_model');
+        $this->load->model('admin/login_model');
     }
 
     public function index() {
-        $this->load->view('login_frm');
+        $this->load->view('admin/login_form');
     }
- public function checkdata() {
+
+    public function checkdata() {
         $checkdata = $this->login_model->validate($_POST['email'], $_POST['password']);
         if (isset($checkdata['admin_id'])) {
             $userdata = $checkdata;
             $this->session->set_userdata('admin_id', $userdata['admin_id']);
-            $this->session->set_userdata('email',$userdata['email']);
+            $this->session->set_userdata('email', $userdata['email']);
             $this->session->set_userdata('password', $userdata['password']);
-            redirect('welcome/index');
+            header("Location:" . base_url() . "admin/home");
         } else {
-            $this->session->set_flashdata('message', 'Please Enter Correct User_Name And Password');
-            redirect('login/index');
+            $this->session->set_flashdata('message', 'Please Enter Correct User Name And Password');
+            header("Location:" . base_url() . "admin/login");
         }
     }
 
-/*    public function checkdata() {
-        $this->load->model('login_model');
+    /*    public function checkdata() {
+      $this->load->model('login_model');
 
-        $email = $this->input->post('email');
-        $password = $this->input->post('password');
-        $data = $this->login_model->validate($email, $password);
+      $email = $this->input->post('email');
+      $password = $this->input->post('password');
+      $data = $this->login_model->validate($email, $password);
 
-        if (isset($data["admin_id"])) {
+      if (isset($data["admin_id"])) {
 
-            $this->session->set_userdata('admin_id', $data['admin_id']);
-            $this->session->set_userdata('email', $data['email']);
-            redirect("welcome/index");
-        }
+      $this->session->set_userdata('admin_id', $data['admin_id']);
+      $this->session->set_userdata('email', $data['email']);
+      redirect("welcome/index");
+      }
 
-        $this->session->set_flashdata('message', $data['message']);
-        redirect("login/index");
-    }
-*/
+      $this->session->set_flashdata('message', $data['message']);
+      redirect("login/index");
+      }
+     */
+
     public function logout() {
-
         $this->session->unset_userdata($data);
         $this->session->sess_destroy();
-        redirect("login/index");
+        header("Location:" . base_url() . "admin/login");
     }
 
 }

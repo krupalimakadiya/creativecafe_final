@@ -7,10 +7,14 @@ class MY_Controller extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
+        $this->load->model('admin/country_model');
+        $this->load->model('admin/state_model');
+        $this->load->model('admin/city_model');
+        $this->load->model('admin/user_model');
         $admin_id = intval($this->session->userdata('admin_id'));
         if ($admin_id === 0) {
             $this->session->set_flashdata('message', 'session destroy !!!!');
-            redirect('login/index');
+            header("Location:" . base_url() . "admin/login");
         }
     }
 

@@ -6,10 +6,6 @@ class User extends MY_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->model('admin/country_model');
-        $this->load->model('admin/state_model');
-        $this->load->model('admin/city_model');
-        $this->load->model('admin/user_model');
     }
 
     public function index() {

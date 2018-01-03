@@ -6,31 +6,21 @@
         <title>Creative Cafe | Log in</title>
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-        <!-- Bootstrap 3.3.7 -->
-        <link rel="stylesheet" href="<?php echo base_url() ?>AdminLTE/bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <!-- Bootstrap 3.3.6 -->
+        <link rel="stylesheet" href="<?php echo base_url(); ?>css/admin/bootstrap.min.css">
         <!-- Font Awesome -->
-        <link rel="stylesheet" href="<?php echo base_url() ?>AdminLTE/bower_components/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
         <!-- Ionicons -->
-        <link rel="stylesheet" href="<?php echo base_url() ?>AdminLTE/bower_components/Ionicons/css/ionicons.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
         <!-- Theme style -->
-        <link rel="stylesheet" href="<?php echo base_url() ?>AdminLTE/dist/css/AdminLTE.min.css">
+        <link rel="stylesheet" href="<?php echo base_url(); ?>adminLTE/css/AdminLTE.min.css">
         <!-- iCheck -->
-        <link rel="stylesheet" href="<?php echo base_url() ?>AdminLTE/plugins/iCheck/square/blue.css">
-
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-        <![endif]-->
-
-        <!-- Google Font -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+        <link rel="stylesheet" href="<?php echo base_url(); ?>js/admin/plugins/iCheck/square/blue.css">
     </head>
     <body class="hold-transition login-page">
         <div class="login-box">
             <div class="login-logo">
-                <a href="../../index2.html"><b>Creative</b>Cafe</a>
+                <a href="#"><b>Creative</b>Cafe</a>
             </div>
             <!-- /.login-logo -->
             <div class="login-box-body">
@@ -38,7 +28,7 @@
                 <?php
                 echo $this->session->flashdata('message');
                 ?>
-                <form action="<?php echo site_url('login/checkdata') ?>" method="post" name="loginfrm">
+                <form action="<?php echo base_url(); ?>admin/login/checkdata" method="post" name="loginfrm">
                     <div class="form-group has-feedback">
                         <input type="email" class="form-control" placeholder="Email" name="email">
                         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
@@ -81,11 +71,11 @@
         <!-- /.login-box -->
 
         <!-- jQuery 3 -->
-        <script src="<?php echo base_url() ?>AdminLTE/bower_components/jquery/dist/jquery.min.js"></script>
-        <!-- Bootstrap 3.3.7 -->
-        <script src="<?php echo base_url() ?>AdminLTE/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="<?php echo base_url(); ?>js/admin/plugins/jQuery/jquery-2.2.3.min.js"></script>
+        <!-- Bootstrap 3.3.6 -->
+        <script src="<?php echo base_url(); ?>js/admin/bootstrap.min.js"></script>
         <!-- iCheck -->
-        <script src="<?php echo base_url() ?>AdminLTE/plugins/iCheck/icheck.min.js"></script>
+        <script src="<?php echo base_url(); ?>js/admin/plugins/iCheck/icheck.min.js"></script>
         <script>
             $(function () {
                 $('input').iCheck({
