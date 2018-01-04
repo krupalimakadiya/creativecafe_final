@@ -55,7 +55,7 @@ class city extends MY_Controller {
 
     public function drop_state() {
         $data['update_data'] = $this->city_model->drop_state($_POST['country_id']);
-        $this->load->view('drop_state', $data);
+        $this->load->view('admin/drop_state', $data);
         //     print_r( $data['update_data']);
     }
 

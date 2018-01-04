@@ -76,10 +76,6 @@
         <script src="<?php echo base_url(); ?>js/admin/plugins/bootstrap-notify/bootstrap-notify.js" type="text/javascript"></script>
 
         <script src="<?php echo $base_url; ?>js/mordanizr.js" type="text/javascript"></script>
-        <script src="<?php echo $base_url; ?>js/underscore.js" type="text/javascript"></script>
-        <script src="<?php echo $base_url; ?>js/backbone.js" type="text/javascript"></script>
-        <script src="<?php echo $base_url; ?>js/handlebars-v4.0.5.js" type="text/javascript"></script>
-
         <!-- Notification JS-->
         <script src="<?php echo $base_url; ?>js/notifications.js" type="text/javascript"></script>
         <script src="<?php echo $base_url; ?>js/admin/fuelux/fuelux.spinner.js" type="text/javascript"></script>

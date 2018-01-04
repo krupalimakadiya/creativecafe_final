@@ -70,7 +70,7 @@
                                 foreach ($state_list as $state) {
                                     if ($state->state_id == $update_data['state_id']) {
                                         ?>
-                                                                                                                                                                                                                    <!-- <option selected value="<?//php echo $state->state_id ?>"> <?php //echo $state->state_name                                     ?></option>-->
+                                                                                                                                                                                                                    <!-- <option selected value="<?//php echo $state->state_id ?>"> <?php //echo $state->state_name                                       ?></option>-->
                                         <option value="<?php echo $state->state_id; ?>"selected="selected"><?php echo $state->state_name; ?></option>
                                         <?php
                                     }
@@ -183,3 +183,43 @@
         </div>
     </section>
 </div>
+<script>
+    $("document").ready(function () {
+        // $("#state").hide();
+        $("#country_id").change(function () {
+            $("#state_id").show();
+            var id = $(this).val();
+
+            $.ajax({
+                url: "<?php echo base_url(); ?>admin/user/drop_state",
+                type: "POST",
+                data: {country_id: id},
+                success: function (result) {
+                    //alert(result);
+                    $("#state_id").html(result);
+                }
+
+            });
+        });
+
+    });
+    $("document").ready(function () {
+        // $("#state").hide();
+        $("#state_id").change(function () {
+            $("#city_id").show();
+            var id = $(this).val();
+
+            $.ajax({
+                url: "<?php echo base_url(); ?>admin/user/drop_city",
+                type: "POST",
+                data: {state_id: id},
+                success: function (result) {
+                    //alert(result);
+                    $("#city_id").html(result);
+                }
+
+            });
+        });
+
+    });
+</script>

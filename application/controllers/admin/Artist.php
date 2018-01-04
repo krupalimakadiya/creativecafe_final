@@ -33,16 +33,6 @@ class Artist extends MY_Controller {
         }
     }
 
-    public function drop_state() {
-        $data['update_data'] = $this->artist_model->drop_state($_POST['country_id']);
-        $this->load->view('admin/drop_state', $data);
-    }
-
-    public function drop_city() {
-        $data['update_data'] = $this->artist_model->drop_city($_POST['state_id']);
-        $this->load->view('admin/drop_city', $data);
-    }
-
     public function edit_data($artist_id) {
         $data = $this->_get_country_state_data();
         $data['update_data'] = $this->artist_model->edit_data($artist_id);

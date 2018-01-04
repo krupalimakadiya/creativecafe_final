@@ -33,13 +33,13 @@ class User extends MY_Controller {
 
     public function drop_state() {
         $data['update_data'] = $this->user_model->drop_state($_POST['country_id']);
-        $this->load->view('drop_state', $data);
+        $this->load->view('admin/drop_state', $data);
         //     print_r( $data['update_data']);
     }
 
     public function drop_city() {
         $data['update_data'] = $this->user_model->drop_city($_POST['state_id']);
-        $this->load->view('drop_city', $data);
+        $this->load->view('admin/drop_city', $data);
     }
 
     public function edit_data($user_id) {

@@ -105,3 +105,24 @@
         </div>
     </section>
 </div>
+
+<script>
+    $("document").ready(function () {
+        // $("#state").hide();
+        $("#country_id").change(function () {
+            $("#state_id").show();
+            var id = $(this).val();
+            $.ajax({
+                url: "<?php echo base_url(); ?>admin/city/drop_state",
+                type: "POST",
+                data: {country_id: id},
+                success: function (result) {
+                    //alert(result);
+                    $("#state_id").html(result);
+                }
+
+            });
+        });
+
+    });
+</script>

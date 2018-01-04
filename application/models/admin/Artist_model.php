@@ -5,8 +5,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Artist_model extends CI_model {
 
     public function getartistlist() {
-        $query = $this->db->query("select * from artist_master  as a, country_master as c, state_master as s, city_master as city , art_category_master as ac where a.country_id=c.country_id and a.state_id=s.state_id and a.city_id=city.city_id and a.art_category_id=ac.art_category_id");
-        return $query->result();
+        $this->db->select('*');
+        $this->db->from('artist_master AS a');
+        $this->db->join('country_master AS cm', 'a.country_id = cm.country_id');
+        $this->db->join('state_master  AS sm', 'a.state_id  = sm.state_id ');
+        $this->db->join('city_master  AS c', 'a.city_id = c.city_id');
+//        $this->db->join('art_category_master  AS ac', 'a.country_id = ac.country_id');
+        $recs = $this->db->get();
+        return $recs->result();
     }
 
     public function insert($first_name, $last_name, $art_category_id, $mobile, $email, $password, $country_id, $state_id, $city_id, $pincode) {
