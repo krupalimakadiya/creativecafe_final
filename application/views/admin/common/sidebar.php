@@ -12,12 +12,12 @@
             </li>
             <li>
                 <a href="<?PHP echo base_url(); ?>admin/user">
-                    <i class="fa fa-dashboard"></i> <span>User Master</span>
+                    <i class="fa fa-circle-o"></i> <span>User Master</span>
                 </a>
             </li>
             <li>
                 <a href="<?PHP echo base_url(); ?>admin/artist">
-                    <i class="fa fa-dashboard"></i> <span>Artist Master</span>
+                    <i class="fa fa-circle-o"></i> <span>Artist Master</span>
                 </a>
             </li>
             <li class="treeview">
@@ -37,23 +37,23 @@
             
                         <li>
                 <a href="<?PHP echo base_url(); ?>admin/comment">
-                    <i class="fa fa-dashboard"></i> <span>Comment Master</span>
+                    <i class="fa fa-circle-o"></i> <span>Comment Master</span>
                 </a>
             </li>
             <li>
                 <a href="<?PHP echo base_url(); ?>admin/news">
-                    <i class="fa fa-dashboard"></i> <span>News Master</span>
+                    <i class="fa fa-circle-o"></i> <span>News Master</span>
                 </a>
             </li>
             <li>
                 <a href="<?PHP echo base_url(); ?>admin/event">
-                    <i class="fa fa-dashboard"></i> <span>Event Master</span>
+                    <i class="fa fa-circle-o"></i> <span>Event Master</span>
                 </a>
             </li>
             
             <li>
                 <a href="<?PHP echo base_url(); ?>admin/review">
-                    <i class="fa fa-dashboard"></i> <span>Site Review Master</span>
+                    <i class="fa fa-circle-o"></i> <span>Site Review Master</span>
                 </a>
             </li>
 
