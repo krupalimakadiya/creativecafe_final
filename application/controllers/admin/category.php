@@ -20,7 +20,7 @@ class category extends MY_Controller {
     }
 
     public function import() {
-        $this->load->view('import_category');
+        $this->templets('admin/art_category/import_art_category');
     }
 
     public function addp() {
@@ -35,6 +35,38 @@ class category extends MY_Controller {
         }
     }
 
+
+    public function edit_data($art_category_id) {
+        $data['update_data'] = $this->category_model->edit_data($art_category_id);
+        $data['category_list'] = $this->category_model->getcategorylist();
+        $this->templets('admin/art_category/art_category_form', $data);
+    }
+
+    public function editp() {
+        $data["update"] = $this->category_model->update_data($_POST['art_category_id'], $_POST['art_category_name']);
+        $this->index();
+    }
+
+    public function delete($art_category_id) {
+        $this->category_model->delete($art_category_id);
+        $this->session->set_flashdata('message', 'record deleted successfully...');
+        $this->index();
+    }
+
+    public function update_status_active($art_category_id) {
+        $this->load->model('category_model');
+        $status = $this->input->get('status');
+        $this->category_model->update_active($art_category_id, $status);
+        $this->index();
+    }
+
+    public function update_status_deactive($art_category_id) {
+        $this->load->model('category_model');
+        $status = $this->input->get('status');
+        $this->category_model->update_deactive($art_category_id, $status);
+        $this->index();
+    }
+    
     public function importp() {
         $file = $_FILES['upload']['tmp_name'];
         $handle = fopen($file, "r");
@@ -67,36 +99,21 @@ class category extends MY_Controller {
         $this->session->set_flashdata('message', $counter . " record(s) out of " . ($total == -1 ? 0 : $total) . " successfully imported.");
         $this->index();
     }
+    
+        public function export()
+    {
+        $this->load->dbutil(); 
+        $this->load->helper('file'); 
+        $this->load->helper('download'); 
+        $delimiter = ","; 
+        $newline = "\r\n"; 
+        $filename = "art_category_master.csv"; 
+        $query = "select art_category_name as 'Art Category Name' 
+                from art_category_master";
+                 $result = $this->db->query($query); 
+        $data = $this->dbutil->csv_from_result($result, $delimiter, $newline); 
+        force_download($filename, $data);
 
-    public function edit_data($art_category_id) {
-        $data['update_data'] = $this->category_model->edit_data($art_category_id);
-        $data['category_list'] = $this->category_model->getcategorylist();
-        $this->templets('admin/art_category/art_category_form', $data);
-    }
-
-    public function editp() {
-        $data["update"] = $this->category_model->update_data($_POST['art_category_id'], $_POST['art_category_name']);
-        $this->index();
-    }
-
-    public function delete($art_category_id) {
-        $this->category_model->delete($art_category_id);
-        $this->session->set_flashdata('message', 'record deleted successfully...');
-        $this->index();
-    }
-
-    public function update_status_active($art_category_id) {
-        $this->load->model('category_model');
-        $status = $this->input->get('status');
-        $this->category_model->update_active($art_category_id, $status);
-        $this->index();
-    }
-
-    public function update_status_deactive($art_category_id) {
-        $this->load->model('category_model');
-        $status = $this->input->get('status');
-        $this->category_model->update_deactive($art_category_id, $status);
-        $this->index();
     }
 
     public function deletemultiple() {

@@ -8,7 +8,21 @@ class User_model extends CI_model {
         $query = $this->db->query("select * from user_master  as user, country_master as c, state_master as s, city_master as city where user.country_id=c.country_id and user.state_id=s.state_id and user.city_id=city.city_id ");
         return $query->result();
     }
-
+ public function getcountryid($country_name) {
+      $query = $this->db->query("select * from country_master where country_name='$country_name'");
+      return $query->row_array();
+      }
+  
+          public function getstateid($state_name) {
+      $query = $this->db->query("select * from state_master where state_name='$state_name'");
+      return $query->row_array();
+      }
+  
+          public function getcityid($city_name) {
+      $query = $this->db->query("select * from city_master where city_name='$city_name'");
+      return $query->row_array();
+      }
+  
     public function insert($first_name, $last_name, $country_id, $state_id, $city_id, $pincode, $email, $mobile) {
         $data = array('first_name' => $first_name,
             'last_name' => $last_name,
@@ -69,19 +83,19 @@ class User_model extends CI_model {
         $this->db->delete('user_master');
     }
 
-    public function update_active($user_id, $status) {
+    public function update_active($user_id, $user_status) {
         $data = array(
             'user_id' => $user_id,
-            'status' => 1
+            'user_status' => 1
         );
         $this->db->where('user_id', $user_id);
         $this->db->update('user_master', $data);
     }
 
-    public function update_deactive($user_id, $status) {
+    public function update_deactive($user_id, $user_status) {
         $data = array(
             'user_id' => $user_id,
-            'status' => 0
+            'user_status' => 0
         );
         $this->db->where('user_id', $user_id);
         $this->db->update('user_master', $data);

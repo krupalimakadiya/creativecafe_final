@@ -9,20 +9,44 @@
                         <a href="<?php echo base_url(); ?>admin/artist/add_artist"><button class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i>&nbsp;Add records</button></a> &nbsp;
                         <a href="<?php echo base_url(); ?>admin/artist/import"><button class="btn btn-primary"><i class="glyphicon glyphicon-import"></i>&nbsp;Imports</button></a> &nbsp;
                         <a href="<?php echo base_url(); ?>admin/artist/export"><button class="btn btn-primary"><i class="glyphicon glyphicon-export"></i>&nbsp;Exports</button></a></p>
-                    <?php
-                    $message = $this->session->flashdata('message');
-                    if (isset($message)) {
-                        if ($message != ' ') {
-                            ?>
-                            <div class="alert alert-success">
-                                <span class="semibold">Note:</span>&nbsp;&nbsp;
-                                <?= $message ?>
+                                                <?php
+                                $message = $this->session->flashdata('message');
+                                $success = $this->session->flashdata('success');
+                                $fail = $this->session->flashdata('fail');
+
+                                if (isset($message)) {
+                                    if ($message != ' ') {
+                                        ?>
+                                        <div class="alert alert-success">       <!--green model-->
+                                            <span class="semibold">Note:</span>&nbsp;&nbsp;
+                                            <?= $message ?>
+                                        </div>
+                                        <?php
+                                    }
+                                }
+                                if (isset($success)) {
+                                    if ($success != ' ') {
+                                        ?>
+                                        <div class="alert alert-success">       <!--green model-->
+                                            <span class="semibold">Note:</span>&nbsp;&nbsp;
+                                            <?= $success ?>
+                                        </div>
+                                        <?php
+                                    }
+                                }
+                                if (isset($fail)) {
+                                    if ($fail != ' ') {
+                                        ?>
+                                        <div class="alert alert-success">       <!--green model-->
+                                            <span class="semibold">Note:</span>&nbsp;&nbsp;
+                                            <?= $fail ?>
+                                        </div>
+                                        <?php
+                                    }
+                                }
+                                ?>
                             </div>
-                            <?php
-                        }
-                    }
-                    ?>
-                </div>
+
                 <div class="box-body">
                     <table id="example1" class="table table-bordered table-striped">
                         <thead>
@@ -45,8 +69,8 @@
                             foreach ($artist_list as $artist) {
                                 ?>
                                 <tr>
-                                    <td></td>
-                                    <td><?PHP echo $cnt++; ?> </td>
+                                            <td><input type="checkbox" name="artist_id[]" value="<?php echo $artist->artist_id ?>"/></td>
+                                <td><?PHP echo $cnt++; ?> </td>
                                     <td><?PHP echo $artist->first_name ?></td>
                                     <td><?PHP echo $artist->last_name ?></td>
                                     <td><?PHP echo $artist->art_category_name ?></td>
@@ -55,7 +79,7 @@
                                     <td><?PHP echo $artist->password ?></td>
 
                                     <td><?php
-                                        if ($artist->status == '0') {
+                                        if ($artist->artist_status == '0') {
                                             ?>
                                             <i class="glyphicon glyphicon-remove" style="color:red"></i>
                                             <?php
@@ -77,7 +101,7 @@
                                                 <li>    <a href="<?php echo base_url(); ?>admin/artist/edit_data/<?php echo $artist->artist_id; ?>" onclick="return confirm('you want to edit...........')"><i class="fa fa-edit"></i><label>Edit</label></a></li>
                                                 <li>    <a href="<?php echo base_url(); ?>admin/artist/delete/<?php echo $artist->artist_id; ?>" onclick="return confirm('you want to delete...........')"><i class="fa fa-trash"></i><label>Delete</label></a></li>
                                                 <li><?php
-                                                    if ($artist->status == '0') {
+                                                    if ($artist->artist_status == '0') {
                                                         ?>
                                                         <a href="<?php echo base_url(); ?>admin/artist/update_status_active/<?php echo $artist->artist_id; ?>"><i class="glyphicon glyphicon-ok" style="color:green"></i><label>Active</label></a>
                                                         <?php
@@ -189,3 +213,16 @@
         $('#myModal' + id).modal('show');
     }
 </script>
+  <script>
+            $(function ()
+            {
+                window.setTimeout(function ()
+                {
+                    $(".alert").fadeTo(500, 0).slideUp(500, function ()  {
+                        $(this).remove();
+                    });
+                }, 4000);
+                
+                 $("#example1").datatable();
+            });
+        </script>

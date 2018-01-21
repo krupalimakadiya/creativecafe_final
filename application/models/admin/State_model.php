@@ -14,10 +14,11 @@ class State_model extends CI_model {
         return $query->result();
     }
 
-    /* public function getcountryid($country_name) {
+    //used in importp method for get country id from coutry name
+     public function getcountryid($country_name) {
       $query = $this->db->query("select * from country_master where country_name='$country_name'");
       return $query->row_array();
-      } */
+      }
 
     public function insert($country_id, $state_name) {
         $data = array('country_id' => $country_id,

@@ -9,22 +9,43 @@
                     <a href="<?php echo base_url(); ?>admin/category/import"><button class="btn btn-primary"><i class="glyphicon glyphicon-import"></i>&nbsp;Imports</button></a> &nbsp;
                     <a href="<?php echo base_url(); ?>admin/category/export"><button class="btn btn-primary"><i class="glyphicon glyphicon-export"></i>&nbsp;Exports</button></a></p>
 
-                <?php
-                $message = $this->session->flashdata('message');
-                if (isset($message)) {
+                                           <?php
+                                $message = $this->session->flashdata('message');
+                                $success = $this->session->flashdata('success');
+                                $fail = $this->session->flashdata('fail');
 
-                    if ($message != ' ') {
-                        ?>
-                        <div class="alert alert-success">
-                            <span class="semibold">Note:</span>&nbsp;&nbsp;
-                            <?= $message ?>
-                        </div>
-                        <?php
-                    }
-                }
-                ?>
-
-            </div>
+                                if (isset($message)) {
+                                    if ($message != ' ') {
+                                        ?>
+                                        <div class="alert alert-success">       <!--green model-->
+                                            <span class="semibold">Note:</span>&nbsp;&nbsp;
+                                            <?= $message ?>
+                                        </div>
+                                        <?php
+                                    }
+                                }
+                                if (isset($success)) {
+                                    if ($success != ' ') {
+                                        ?>
+                                        <div class="alert alert-success">       <!--green model-->
+                                            <span class="semibold">Note:</span>&nbsp;&nbsp;
+                                            <?= $success ?>
+                                        </div>
+                                        <?php
+                                    }
+                                }
+                                if (isset($fail)) {
+                                    if ($fail != ' ') {
+                                        ?>
+                                        <div class="alert alert-success">       <!--green model-->
+                                            <span class="semibold">Note:</span>&nbsp;&nbsp;
+                                            <?= $fail ?>
+                                        </div>
+                                        <?php
+                                    }
+                                }
+                                ?>
+                            </div>
 
 
             <div class="box-body">
@@ -156,3 +177,16 @@
         $('#myModal' + id).modal('show');
     }
 </script>
+  <script>
+            $(function ()
+            {
+                window.setTimeout(function ()
+                {
+                    $(".alert").fadeTo(500, 0).slideUp(500, function ()  {
+                        $(this).remove();
+                    });
+                }, 4000);
+                
+                 $("#example1").datatable();
+            });
+        </script>

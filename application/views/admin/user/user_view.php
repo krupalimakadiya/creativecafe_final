@@ -10,21 +10,44 @@
                         <a href="<?php echo base_url(); ?>admin/user/add_user"><button class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i>&nbsp;Add records</button></a> &nbsp;
                         <a href="<?php echo base_url(); ?>admin/user/import"><button class="btn btn-primary"><i class="glyphicon glyphicon-import"></i>&nbsp;Imports</button></a> &nbsp;
                         <a href="<?php echo base_url(); ?>admin/user/export"><button class="btn btn-primary"><i class="glyphicon glyphicon-export"></i>&nbsp;Exports</button></a></p>
-                    <?php
-                    $message = $this->session->flashdata('message');
-                    if (isset($message)) {
+                                               <?php
+                                $message = $this->session->flashdata('message');
+                                $success = $this->session->flashdata('success');
+                                $fail = $this->session->flashdata('fail');
 
-                        if ($message != ' ') {
-                            ?>
-                            <div class="alert alert-success">
-                                <span class="semibold">Note:</span>&nbsp;&nbsp;
-                                <?= $message ?>
-                            </div>
-                            <?php
-                        }
-                    }
-                    ?>
-                </div>
+                                if (isset($message)) {
+                                    if ($message != ' ') {
+                                        ?>
+                                        <div class="alert alert-success">       <!--green model-->
+                                            <span class="semibold">Note:</span>&nbsp;&nbsp;
+                                            <?= $message ?>
+                                        </div>
+                                        <?php
+                                    }
+                                }
+                                if (isset($success)) {
+                                    if ($success != ' ') {
+                                        ?>
+                                        <div class="alert alert-success">       <!--green model-->
+                                            <span class="semibold">Note:</span>&nbsp;&nbsp;
+                                            <?= $success ?>
+                                        </div>
+                                        <?php
+                                    }
+                                }
+                                if (isset($fail)) {
+                                    if ($fail != ' ') {
+                                        ?>
+                                        <div class="alert alert-success">       <!--green model-->
+                                            <span class="semibold">Note:</span>&nbsp;&nbsp;
+                                            <?= $fail ?>
+                                        </div>
+                                        <?php
+                                    }
+                                }
+                                ?>
+                           
+ </div>
                 <div class="box-body">
                     <form name="frm" method="post" action="<?php echo base_url(); ?>admin/user/deletemultiple">
                         <table id="example1" class="table table-bordered table-striped">
@@ -53,7 +76,7 @@
                                         <td><?PHP echo $user->email ?></td>
                                         <td><?PHP echo $user->city_name ?></td>
                                         <td><?php
-                                            if ($user->status == '0') {
+                                            if ($user->user_status == '0') {
                                                 ?>
                                                 <i class="glyphicon glyphicon-remove" style="color:red"></i>
                                                 <?php
@@ -75,7 +98,7 @@
                                                     <li> <a href="<?php echo base_url(); ?>admin/user/edit_data/<?php echo $user->user_id; ?>" onclick="return confirm('you want to edit...........')"><i class="fa fa-edit"></i><label>Edit</label></a></li>
                                                     <li>    <a href="<?php echo base_url(); ?>admin/user/delete/<?php echo $user->user_id; ?>" onclick="return confirm('you want to delete...........')"><i class="fa fa-trash"></i><label>Delete</label></a></li>
                                                     <li><?php
-                                                        if ($user->status == '0') {
+                                                        if ($user->user_status == '0') {
                                                             ?>
                                                             <a href="<?php echo base_url(); ?>admin/user/update_status_active/<?php echo $user->user_id ?>"><i class="glyphicon glyphicon-ok" style="color:green"></i><label>Active</label></a>
                                                             <?php
@@ -181,3 +204,16 @@
         $('#myModal' + id).modal('show');
     }
 </script>
+  <script>
+            $(function ()
+            {
+                window.setTimeout(function ()
+                {
+                    $(".alert").fadeTo(500, 0).slideUp(500, function ()  {
+                        $(this).remove();
+                    });
+                }, 4000);
+                
+                 $("#example1").datatable();
+            });
+        </script>

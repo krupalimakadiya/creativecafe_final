@@ -34,6 +34,30 @@
                     <li><a href="<?PHP echo base_url(); ?>admin/category"><i class="fa fa-circle-o"></i> Art Category Master</a></li>
                 </ul>
             </li>
+            
+                        <li>
+                <a href="<?PHP echo base_url(); ?>admin/comment">
+                    <i class="fa fa-dashboard"></i> <span>Comment Master</span>
+                </a>
+            </li>
+            <li>
+                <a href="<?PHP echo base_url(); ?>admin/news">
+                    <i class="fa fa-dashboard"></i> <span>News Master</span>
+                </a>
+            </li>
+            <li>
+                <a href="<?PHP echo base_url(); ?>admin/event">
+                    <i class="fa fa-dashboard"></i> <span>Event Master</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="<?PHP echo base_url(); ?>admin/review">
+                    <i class="fa fa-dashboard"></i> <span>Site Review Master</span>
+                </a>
+            </li>
+
+               
         </ul>
     </section>
     <!-- /.sidebar -->
